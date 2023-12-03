@@ -5,8 +5,8 @@
   const dispatch = createEventDispatcher();
 
   const handleDelete = (feedbackId) => {
-    dispatch('delete-feedback', feedbackId);
-  }
+    dispatch("delete-feedback", feedbackId);
+  };
 </script>
 
 <article>
@@ -16,10 +16,7 @@
 
   <div class="content-container">
     <p>{feedback.content}</p>
-    <button 
-      class="delete-icon" 
-      on:click={() => handleDelete(feedback._id)}
-    >
+    <button class="delete-icon" on:click={() => handleDelete(feedback._id)}>
       &times;
     </button>
   </div>
@@ -40,7 +37,8 @@
     position: absolute;
     inset: 0 auto auto 0;
     background-color: #db3080;
-    width: 42px; height: 42px;
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
     color: #e9e9e9;
     transform: translate(-30%, -30%);
@@ -51,7 +49,8 @@
     align-items: flex-start;
     justify-content: space-between;
     gap: 1em;
-  } 
+    font-size: 0.935em;
+  }
 
   .delete-icon {
     font-size: 1.65rem;

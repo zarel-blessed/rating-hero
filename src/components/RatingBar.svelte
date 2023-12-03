@@ -119,6 +119,8 @@
     place-items: center;
     width: 38px;
     height: 38px;
+    font-weight: 500;
+    color: #252525;
     background: #a6a6a6;
     border-radius: 50%;
     cursor: pointer;

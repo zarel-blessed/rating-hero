@@ -1,12 +1,12 @@
 <script>
   export let feedbacks;
   $: len = feedbacks.length;
-  $: averageRating = feedbacks.reduce((i, fb) => i + fb.rating, 0) / len;
+  $: averageRating = len === 0 ? 0 : feedbacks.reduce((i, fb) => i + fb.rating, 0) / len;
 </script>
 
 <section class="stat-container">
   <span>{len} feedbacks</span>
-  <span>{averageRating} average</span>
+  <span>{averageRating.toPrecision(2)} average</span>
 </section>
 
 <style>

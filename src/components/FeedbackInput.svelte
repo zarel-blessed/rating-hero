@@ -1,21 +1,34 @@
 <script>
   import RatingBar from "./RatingBar.svelte";
+  export let feedbacks;
 
   let rating = 10;
   let disabled = true;
+  let content = "";
 
-  const handleChange = (e) => (disabled = e.target.value.length <= 12);
+  const handleChange = (e) => {
+    const val = e.target.value;
+    content = val;
+    disabled = val.length <= 12;
+  };
+
+  const handleAddFeedback = (e) => {
+    e.preventDefault();
+    const fb = { _id: Date.now(), rating, content };
+    localStorage.setItem("feedbacks", JSON.stringify([...feedbacks, fb]));
+    feedbacks = [...feedbacks, fb];
+  };
 </script>
 
 <section>
   <h2>How much would you rate your service with us?</h2>
 
   <form>
-    <RatingBar {rating} />
+    <RatingBar bind:rating />
 
     <div class="input-container">
       <input type="text" placeholder="Write your feedback..." on:input={handleChange} />
-      <input type="submit" {disabled} />
+      <input type="submit" {disabled} on:click={handleAddFeedback} />
     </div>
   </form>
 
