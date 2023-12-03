@@ -1,6 +1,6 @@
 <script>
   import { createEventDispatcher } from "svelte";
-  import { slide, scale } from "svelte/transition";
+  import { scale } from "svelte/transition";
 
   export let feedback;
 
