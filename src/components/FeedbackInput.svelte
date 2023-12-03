@@ -15,8 +15,8 @@
   const handleAddFeedback = (e) => {
     e.preventDefault();
     const fb = { _id: Date.now(), rating, content };
-    localStorage.setItem("feedbacks", JSON.stringify([...feedbacks, fb]));
-    feedbacks = [...feedbacks, fb];
+    localStorage.setItem("feedbacks", JSON.stringify([fb, ...feedbacks]));
+    feedbacks = [fb, ...feedbacks];
   };
 </script>
 

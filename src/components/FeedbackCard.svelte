@@ -1,5 +1,7 @@
 <script>
   import { createEventDispatcher } from "svelte";
+  import { slide, scale } from "svelte/transition";
+
   export let feedback;
 
   const dispatch = createEventDispatcher();
@@ -9,7 +11,7 @@
   };
 </script>
 
-<article>
+<article transition:scale>
   <span class="rating-ring">
     {feedback.rating}
   </span>
@@ -53,9 +55,11 @@
   }
 
   .delete-icon {
-    font-size: 1.65rem;
+    font-size: 1.45rem;
     cursor: pointer;
     background-color: transparent;
+    height: 10px;
+    transform: translateY(-0.35em);
   }
 
   p {
